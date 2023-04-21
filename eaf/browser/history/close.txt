@@ -3,4 +3,3 @@ https://www.gnu.org/
 https://www.gnu.org/
 https://www.gnu.org/
 https://www.gnu.org/
-https://github.com/RVMIA/.emacs.d
