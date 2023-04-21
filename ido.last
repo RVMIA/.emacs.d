@@ -1,0 +1,54 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/ame/Documents/code/" . "C/")
+ ("/home/ame/Documents/" . "code/")
+ ("/etc/" . "lightdm/")
+ ("/" . "etc/")
+ ("/home/ame/.config/xmonad/" . "xmobar/")
+ ("/home/ame/.config/" . "xmonad/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/ame/.emacs.d/"
+ "/home/ame/.config/xmonad/"
+ "/home/ame/.config/xmonad/xmobar/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "xmonad.hs"
+ "README.org"
+ "xmobar.hs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/ame/Documents/code/C/" (25662 36404 207071 151000) "../" "sea.c" "fathom.c" "helloworld.c" "french.c" "./" "extenstions.c")
+
+ ("/home/ame/Documents/code/" (25662 36404 353070 900000) "../" "C/" "./" "site/" "python/" "haskell/")
+
+ ("/home/ame/Documents/" (25662 36682 66598 136000) "../" "code/" "Games/" "iso/" "sheet music/" "./" "Books/")
+
+ ("/home/ame/.config/xmonad/" (25664 29960 796036 326000) "../" ".git/" "xmobar/" "xmonad.hs" "./" "scripts/" "README.org")
+
+ ("/home/ame/.emacs.d/" (25664 31766 691499 879000) "ido.last" "../" "auto-save-list/" ".git/" "smex-items" "init.el" "./" "recentf" "config.org" "elpa/" "tramp" "config.el")
+
+ ("/home/ame/" (25664 32385 6906 898000) "Music/" "Downloads/" ".bash_history" "../" ".steampid" "Pictures/" ".local/" ".pki/" ".gitconfig" "Videos/" ".xsession-errors" ".xsession-errors.old" "Documents/" ".bashrc" ".steampath" ".gnome/" ".authinfo" ".emacs.d/" "./" ".ghcup/" ".viminfo" "screenshots.png" ".stack/" ".pulse-cookie" ".dmrc" ".cache/" ".config/" ".steam/" ".vscode-oss/" ".mozilla/" ".Xauthority" ".screenlayout/" ".bash_logout" ".gnupg/" ".bash_profile")
+
+ ("/home/ame/.config/xmonad/xmobar/" (25663 7455 945595 57000) "../" "xmobar.hs" "./")
+
+ ("/etc/lightdm/" (25663 6427 691258 708000) "lightdm-gtk-greeter.conf" "Xsession" "lightdm.conf" "keys.conf" "./" "../" "users.conf")
+
+ ("/etc/" (25663 6766 604695 89000) "rpc" "nginx/" "default/" "passwd-" "gshadow-" "bash.bash_logout" "profile" "mkinitcpio.d/" "X11/" "libaudit.conf" "sudoers" "subgid" "audit/" "wgetrc" "credstore/" "hosts" "vimrc" "depmod.d/" "subuid" "apparmor.d/" "fstab" "man_db.conf" "subuid-" "pacman.d/" "nanorc" "rc_maps.cfg" "bash.bashrc" "pkcs11/" "makepkg.conf" "modules-load.d/" "polkit-1/" "mke2fs.conf" "ld.so.cache" "locale.gen" "systemd/" "pinentry/" ".pwd.lock" "grub.d/" "iptables/" "gtk-3.0/" "./" "shadow" "mime.types" "avahi/" "fuse.conf" "lightdm/" "mkinitcpio.conf" "iproute2/" "kernel/" "tpm2-tss/" "protocols" "ssh/" "../" "fonts/" "ld.so.conf" "i3blocks.conf" "xdg/" "passwd" "request-key.d/" "environment" "mtab" ".updated" "shadow-" "udev/" "group" "sensors3.conf" "krb5.conf" "gshadow" "machine-id" "pulse/" "nscd.conf" "binfmt.d/" "openldap/" "ca-certificates/" "ssl/" "modprobe.d/" "e2scrub.conf" "skel/" "services" "pam.d/" "smartd.conf" "healthd.conf" "NetworkManager/" "dconf/" "gai.conf" "xattr.conf" "nsswitch.conf" "conf.d/" "libinput/" "request-key.conf" "sensors.d/" "securetty" "vdpau_wrapper.cfg" "sudoers.d/" "tmpfiles.d/" "debuginfod/" "wpa_supplicant/" "arch-release" "shells" "pipewire/" "locale.conf" "i3status.conf" "netconfig" "sysctl.d/" "sudo_logsrvd.conf" "host.conf" "hostname" "security/" "slsh.rc" "localtime" "inputrc" "group-" "vconsole.conf" "i3/" "sudo.conf" "bindresvport.blacklist" "resolv.conf" "subgid-" "trusted-key.key" "login.defs" "ld.so.conf.d/" "gprofng.rc" "issue" "alsa/" "pacman.conf" "mailcap" "xtables.conf" "keyutils/" "os-release" "profile.d/" "crypttab" "libnl/" "gtk-2.0/" "initcpio/" "ethertypes" "rc_keymaps/" "credstore.encrypted/" "libva.conf")
+
+ ("/home/" (25662 6199 715663 211000) "../" "lost+found/" "ame/" "./")
+
+ ("/home/ame/.config/" (25663 6052 221792 374000) "Code - OSS/" "../" "dconf/" "xfce4/" "i3/" "xmonad/" "screenlayout.sh" "gtk-3.0/" "kitty/" "pulse/" "Thunar/" "./" "neofetch/" "nitrogen/" "gtk-2.0/" "mimeapps.list" "gh/" "yay/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
