@@ -8,12 +8,6 @@ EMACS CONFIG
   (ad-activate 'ansi-term)
 #+end_src
 * Emacs
-** Themes
-*** Gruvbox
-#+begin_src emacs-lisp
-  (use-package gruvbox-theme
-    :ensure t)
-#+end_src
 ** Packages
 *** Which-Key
 #+begin_src emacs-lisp
