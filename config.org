@@ -1,3 +1,4 @@
+EMACS CONFIG
 * Terminal
 ** Setting default shell to bash
 #+begin_src emacs-lisp
@@ -7,6 +8,12 @@
   (ad-activate 'ansi-term)
 #+end_src
 * Emacs
+** Themes
+*** Gruvbox
+#+begin_src emacs-lisp
+  (use-package gruvbox-theme
+    :ensure t)
+#+end_src
 ** Packages
 *** Which-Key
 #+begin_src emacs-lisp
@@ -66,7 +73,7 @@
     (dashboard-setup-startup-hook)
     (setq dashboard-items '((recents . 5)))
     (setq dashboard-startup-banner 'official)
-    (setq dashboard-banner-logo-title "why do they call it oven when you of in the cold food of out hot eat the food")
+    (setq dashboard-banner-logo-title "dead inside frfr")
     (setq dashboard-center-content t)
     (setq dashboard-show-shortcuts nil)
     (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
@@ -288,32 +295,41 @@
     :init
     (add-hook 'after-init-hook 'global-company-mode))
 #+end_src
-* EXWM (Commented out)
+* EXWM
 ** dMenu
 #+begin_src emacs-lisp
-;  (use-package dmenu
-;   :ensure t
-;    :bind
-;    ("s-p" . 'dmenu)) 
+    (use-package dmenu
+     :ensure t
+      :bind
+      ("s-p" . 'dmenu)) 
 #+end_src
 ** EXWM
 #+begin_src emacs-lisp
-;  (use-package exwm
-;    :ensure t
-;    :config
-;    (require 'exwm-config)
-;    (exwm-config-default))
+  (use-package exwm
+    :ensure t
+    :config
+    (require 'exwm-config)
+    (exwm-config-default))
 #+end_src
 
 ** systray
 #+begin_src emacs-lisp
-;  (require 'exwm-systemtray)
-;  (exwm-systemtray-enable)
+  (require 'exwm-systemtray)
+  (exwm-systemtray-enable)
 #+end_src
 
 ** Delete Workspaces
 #+begin_src emacs-lisp
-;  (global-set-key (kbd "s-k") 'exwm-workspace-delete)
-;  (global-set-key (kbd "s-w") 'exwm-workspace-swap)
+  (global-set-key (kbd "s-k") 'exwm-workspace-delete)
+  (global-set-key (kbd "s-w") 'exwm-workspace-swap)
 #+end_src
-
+** Multi Monitor
+#+begin_src emacs-lisp
+(require 'exwm-randr)
+(setq exwm-randr-workspace-output-plist '(0 "DisplayPort-0" 1 "HDMI-A-0"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (start-process-shell-command
+             "xrandr" nil "xrandr --output DisplayPort-0 --right-of HDMI-A-0 --auto")))
+(exwm-randr-enable)
+#+end_src
