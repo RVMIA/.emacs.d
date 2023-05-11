@@ -162,6 +162,10 @@ EMACS CONFIG
     :ensure t
     :bind ("M-y" . popup-kill-ring))
 #+end_src
+** Line Number
+#+begin_src emacs-lisp
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+#+end_src
 * Org
 ** Org Bullets
 #+begin_src emacs-lisp
