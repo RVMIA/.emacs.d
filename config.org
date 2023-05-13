@@ -8,6 +8,10 @@ EMACS CONFIG
   (ad-activate 'ansi-term)
 #+end_src
 * Emacs
+** tab width
+#+begin_src emacs-lisp
+  (setq-default tab-width 8)
+#+end_src
 ** Packages
 *** Which-Key
 #+begin_src emacs-lisp
@@ -121,7 +125,13 @@ EMACS CONFIG
     (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
   (global-set-key (kbd "C-c r") `config-reload)
 #+end_src
-
+*** XMonad config
+#+begin_src emacs-lisp
+  (defun config-visit-xmonad ()
+      (interactive)
+      (find-file "~/.config/xmonad/README.org"))
+    (global-set-key (kbd "C-c x") 'config-visit-xmonad)
+#+end_src
 ** Electric Pairs
 #+begin_src emacs-lisp
   (setq electric-pair-pairs '(
