@@ -7,6 +7,11 @@ EMACS CONFIG
     (interactive (list my-term-shell)))
   (ad-activate 'ansi-term)
 #+end_src
+** VTerm
+#+begin_src emacs-lisp
+  (use-package vterm
+    :ensure t)
+#+end_src
 * Emacs
 ** tab width
 #+begin_src emacs-lisp
