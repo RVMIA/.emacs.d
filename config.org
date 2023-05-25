@@ -1,12 +1,5 @@
 EMACS CONFIG
 * Terminal
-** Setting default shell to bash
-#+begin_src emacs-lisp
-  (defvar my-term-shell "/bin/bash")
-  (defadvice ansi-term (before force-bash)
-    (interactive (list my-term-shell)))
-  (ad-activate 'ansi-term)
-#+end_src
 ** VTerm
 #+begin_src emacs-lisp
   (use-package vterm
@@ -198,6 +191,10 @@ EMACS CONFIG
 #+begin_src emacs-lisp
     (setq org-src-window-setup 'current-window)
     
+#+end_src
+** Require
+#+begin_src emacs-lisp
+(require 'org)
 #+end_src
 * IDO
 ** Enable IDO Mode
