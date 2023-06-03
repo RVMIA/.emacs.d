@@ -11,7 +11,7 @@
 ;;  DONT CHANGE ABOVE
 
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
+(org-babel-load-file (expand-file-name "~/.config/emacs/config.org"))
 
 ;; DONT CHANGE BELOW
 (custom-set-variables
