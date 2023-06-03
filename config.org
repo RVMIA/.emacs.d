@@ -6,6 +6,10 @@ EMACS CONFIG
     :ensure t)
 #+end_src
 * Emacs
+** stop asking abt theme
+#+begin_src emacs-lisp
+(setq custom-safe-themes t)
+#+end_src
 ** tab width
 #+begin_src emacs-lisp
   (setq-default tab-width 8)
@@ -186,6 +190,7 @@ EMACS CONFIG
 ** Fill in Source Block Language
 #+begin_src emacs-lisp
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("hs" . "src haskell"))
 #+end_src
 ** Code in current window
 #+begin_src emacs-lisp

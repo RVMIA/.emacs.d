@@ -1,10 +1,7 @@
-(defvar my-term-shell "/bin/bash")
-(defadvice ansi-term (before force-bash)
-  (interactive (list my-term-shell)))
-(ad-activate 'ansi-term)
-
 (use-package vterm
   :ensure t)
+
+(setq custom-safe-themes t)
 
 (setq-default tab-width 8)
 
@@ -125,8 +122,11 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("hs" . "src haskell"))
 
 (setq org-src-window-setup 'current-window)
+
+(require 'org)
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
