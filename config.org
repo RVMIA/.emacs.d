@@ -117,14 +117,14 @@ EMACS CONFIG
 #+begin_src emacs-lisp
   (defun config-visit ()
     (interactive)
-    (find-file "~/.emacs.d/config.org"))
+    (find-file "~/.config/emacs/config.org"))
   (global-set-key (kbd "C-c e") 'config-visit)
 #+end_src
 *** Reload
 #+begin_src emacs-lisp
   (defun config-reload ()
     (interactive)
-    (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+    (org-babel-load-file (expand-file-name "~/.config/emacs/config.org")))
   (global-set-key (kbd "C-c r") `config-reload)
 #+end_src
 *** XMonad config
@@ -257,7 +257,6 @@ EMACS CONFIG
     :bind
     ([remap other-window] . switch-window))
 #+end_src
-
 *** Window Splitting Function
 #+begin_src emacs-lisp
   (defun split-and-follow-horizontally ()
@@ -274,12 +273,14 @@ EMACS CONFIG
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 #+end_src
-** Kill All Buffers
+*** Edwina pane manager
 #+begin_src emacs-lisp
-  (defun kill-all-buffers ()
-    (interactive)
-    (mapc 'kill-buffer (buffer-list)))
-  (global-set-key (kbd "C-M-s-k") 'kill-all-buffers)
+  (use-package edwina
+    :ensure t
+    :config
+    (setq display-buffer-base-action '(display-buffer-below-selected))
+    (edwina-setup-dwm-keys)
+    (edwina-mode 1))
 #+end_src
 * QoL Functions
 ** Kill Whole Word
@@ -310,41 +311,10 @@ EMACS CONFIG
     :init
     (add-hook 'after-init-hook 'global-company-mode))
 #+end_src
-* EXWM
-** dMenu
-#+begin_src emacs-lisp
-    (use-package dmenu
-     :ensure t
-      :bind
-      ("s-p" . 'dmenu)) 
-#+end_src
-** EXWM
-#+begin_src emacs-lisp
-  (use-package exwm
-    :ensure t
-    :config
-    (require 'exwm-config)
-    (exwm-config-default))
-#+end_src
-
-** systray
-#+begin_src emacs-lisp
-  (require 'exwm-systemtray)
-  (exwm-systemtray-enable)
-#+end_src
-
-** Delete Workspaces
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-k") 'exwm-workspace-delete)
-  (global-set-key (kbd "s-w") 'exwm-workspace-swap)
-#+end_src
-** Multi Monitor
-#+begin_src emacs-lisp
-(require 'exwm-randr)
-(setq exwm-randr-workspace-output-plist '(0 "DisplayPort-0" 1 "HDMI-A-0"))
-(add-hook 'exwm-randr-screen-change-hook
-          (lambda ()
-            (start-process-shell-command
-             "xrandr" nil "xrandr --output DisplayPort-0 --right-of HDMI-A-0 --auto")))
-(exwm-randr-enable)
+** Kill All Buffers
+#+begin_src emacs-lisp				     
+  (defun kill-all-buffers ()			     
+    (interactive)				     
+    (mapc 'kill-buffer (buffer-list)))		     
+  (global-set-key (kbd "C-M-s-k") 'kill-all-buffers) 
 #+end_src
