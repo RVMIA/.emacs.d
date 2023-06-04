@@ -1,0 +1,40 @@
+#+TITLE: EXWM Configuration
+
+* dmenu
+#+begin_src emacs-lisp
+(use-package dmenu
+  :ensure t
+  :bind
+  ("s-p" . 'dmenu))
+#+end_src
+* exwm
+#+begin_src emacs-lisp
+(use-package exwm
+  :ensure t
+  :config
+  (require 'exwm-config)
+  (exwm-config-default))
+#+end_src
+
+* systray
+#+begin_src emacs-lisp
+(require 'exwm-systemtray)
+(exwm-systemtray-enable)
+#+end_src
+
+* swap workspaces
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-k") 'exwm-workspace-delete)
+(global-set-key (kbd "s-w") 'exwm-workspace-swap)
+#+end_src
+
+* xrandr
+#+begin_src emacs-lisp
+(require 'exwm-randr)
+(setq exwm-randr-workspace-output-plist '(0 "DisplayPort-0" 1 "HDMI-A-0"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (start-process-shell-command
+             "xrandr" nil "xrandr --output DisplayPort-0 --right-of HDMI-A-0 --auto")))
+(exwm-randr-enable)									
+#+end_src

@@ -1,0 +1,71 @@
+#+TITLE: Custom Functions
+
+* Kill Whole Word
+#+begin_src emacs-lisp
+  (defun kill-whole-word()
+    (interactive)
+    (backward-word)
+    (kill-word 1))
+  (global-set-key (kbd "C-c w w") 'kill-whole-word)
+#+end_src
+
+* Copy Whole Line
+#+begin_src emacs-lisp
+  (defun copy-whole-line ()
+    (interactive)
+    (save-excursion
+      (kill-new
+       (buffer-substring
+	(point-at-bol)
+	(point-at-eol)))))
+  (global-set-key (kbd "C-c w l") 'copy-whole-line)
+#+end_src
+
+* Auto Completion
+#+begin_src emacs-lisp
+  (use-package company
+    :ensure t
+    :init
+    (add-hook 'after-init-hook 'global-company-mode))
+#+end_src
+
+* Kill All Buffers
+#+begin_src emacs-lisp
+  (defun kill-all-buffers ()			     
+    (interactive)				     
+    (mapc 'kill-buffer (buffer-list)))		     
+  (global-set-key (kbd "C-M-s-k") 'kill-all-buffers) 
+#+end_src
+
+* Edit
+#+begin_src emacs-lisp
+  (defun config-visit ()
+    (interactive)
+    (find-file "~/.config/emacs/config/"))
+  (global-set-key (kbd "C-c e") 'config-visit)
+#+end_src
+
+* Reload
+#+begin_src emacs-lisp
+  (defun config-reload ()
+    (interactive)
+    
+    (org-babel-load-file (expand-file-name "~/.config/emacs/config/config.org"))
+    (delete-file (expand-file-name "~/.config/emacs/config/config.el"))
+
+    (org-babel-load-file (expand-file-name "~/.config/emacs/config/exwm.org"))
+    (delete-file (expand-file-name "~/.config/emacs/config/exwm.el"))
+
+    (org-babel-load-file (expand-file-name "~/.config/emacs/config/customFunctions.org"))
+    (delete-file (expand-file-name "~/.config/emacs/config/customFunctions.el")))
+
+  (global-set-key (kbd "C-c r") `config-reload)
+#+end_src
+
+* XMonad config
+#+begin_src emacs-lisp
+  (defun config-visit-xmonad ()
+      (interactive)
+      (find-file "~/.config/xmonad/README.org"))
+    (global-set-key (kbd "C-c x") 'config-visit-xmonad)
+#+end_src
