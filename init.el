@@ -12,8 +12,13 @@
 
 
 (org-babel-load-file (expand-file-name "~/.config/emacs/config/config.org"))
-;; (load-file (expand-file-name "~/.config/emacs/config/exwm.el"))
+(delete-file (expand-file-name "~/.config/emacs/config/config.el"))
+
+;;(org-babel-load-file (expand-file-name "~/.config/emacs/config/exwm.org"))
+;;(delete-file (expand-file-name "~/.config/emacs/config/exwm.el"))
+
 (org-babel-load-file (expand-file-name "~/.config/emacs/config/customFunctions.org"))
+(delete-file (expand-file-name "~/.config/emacs/config/customFunctions.el"))
 
 ;; DONT CHANGE BELOW
 (custom-set-variables
