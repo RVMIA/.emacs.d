@@ -21,23 +21,8 @@
   (global-set-key (kbd "C-c w l") 'copy-whole-line)
 #+end_src
 
-* Auto Completion
-#+begin_src emacs-lisp
-  (use-package company
-    :ensure t
-    :init
-    (add-hook 'after-init-hook 'global-company-mode))
-#+end_src
 
-* Kill All Buffers
-#+begin_src emacs-lisp
-  (defun kill-all-buffers ()			     
-    (interactive)				     
-    (mapc 'kill-buffer (buffer-list)))		     
-  (global-set-key (kbd "C-M-s-k") 'kill-all-buffers) 
-#+end_src
-
-* Edit
+* Emacs Config Edit
 #+begin_src emacs-lisp
   (defun config-visit ()
     (interactive)
@@ -45,24 +30,12 @@
   (global-set-key (kbd "C-c e") 'config-visit)
 #+end_src
 
-* Reload
+* Emacs Config Reload
 #+begin_src emacs-lisp
-  (defun config-reload ()
-    (interactive)
-    
-    (org-babel-load-file (expand-file-name "~/.config/emacs/config/config.org"))
-    (delete-file (expand-file-name "~/.config/emacs/config/config.el"))
-
-   ;; (org-babel-load-file (expand-file-name "~/.config/emacs/config/exwm.org"))
-   ;; (delete-file (expand-file-name "~/.config/emacs/config/exwm.el"))
-
-    (org-babel-load-file (expand-file-name "~/.config/emacs/config/customFunctions.org"))
-    (delete-file (expand-file-name "~/.config/emacs/config/customFunctions.el")))
-
   (global-set-key (kbd "C-c r") `config-reload)
 #+end_src
 
-* XMonad config
+* XMonad Config Visit
 #+begin_src emacs-lisp
   (defun config-visit-xmonad ()
       (interactive)

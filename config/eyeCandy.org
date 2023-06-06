@@ -1,0 +1,105 @@
+#+Title: Eye Candy
+* Dashboard
+#+begin_src emacs-lisp
+  (use-package dashboard
+    :ensure t
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-items '((recents . 5)))
+    (setq dashboard-startup-banner 'official)
+    (setq dashboard-banner-logo-title "dead inside frfr")
+    (setq dashboard-center-content t)
+    (setq dashboard-show-shortcuts nil)
+    (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))))
+#+end_src
+
+* All Themes are Safe (Check themes before installing)
+#+begin_src emacs-lisp
+(setq custom-safe-themes t)
+#+end_src
+
+* Compress symbols (lambda = λ)
+#+begin_src emacs-lisp
+  (when window-system (global-prettify-symbols-mode t))
+#+end_src
+
+* Hide Fancy Bloat
+#+begin_src emacs-lisp
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+;(setq inhibit-startup-message t)
+#+end_src
+
+* Line Numbers
+#+begin_src emacs-lisp
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+#+end_src
+
+* Modeline Rows and Columns
+#+begin_src emacs-lisp
+  (line-number-mode 1)
+  (column-number-mode 1)
+#+end_src
+
+* Spaceline
+#+begin_src emacs-lisp
+  (use-package spaceline
+    :ensure t
+    :config
+    (require `spaceline-config)
+    (setq powerline-default-separator (quote arrow))
+    (spaceline-spacemacs-theme))
+#+end_src
+
+* Diminish modes from modeline
+#+begin_src emacs-lisp
+  (use-package diminish
+    :ensure t
+    :init
+    (diminish `hungry-delete-mode)
+    (diminish `beacon-mode)
+    (diminish `subword-mode)
+    (diminish `rainbow-mode)
+    (diminish `which-key-mode))
+#+end_src
+
+* Org Bullets
+#+begin_src emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+#+end_src
+
+* Clock
+#+begin_src emacs-lisp
+  (display-time-mode 1)
+#+end_src
+
+* Beacon
+#+begin_src emacs-lisp
+  (use-package beacon
+  :ensure t
+  :init
+  (beacon-mode 1))
+#+end_src
+
+* Rainbow Mode
+#+begin_src emacs-lisp
+  (use-package rainbow-mode
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook 'rainbow-mode)
+    (add-hook 'fundamental-mode-hook 'rainbow-mode)
+    (rainbow-mode 1))
+#+end_src
+
+* Rainbow Delimiter
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+#+end_src
+
