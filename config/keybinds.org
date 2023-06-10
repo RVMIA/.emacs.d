@@ -1,0 +1,46 @@
+#+Title: Keybinds
+* Ido Switch Buffer
+C-x C-b
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
+#+end_src
+* Better Curor controls
+M-i, M-j, M-k, M-l for movement (like WASD)
+M-u and M-o to forward and backwards a word
+M-SPC to set mark
+
+#+begin_src emacs-lisp
+  (global-set-key (kbd "M-i") 'previous-line)
+  (global-set-key (kbd "M-j") 'backward-char)
+  (global-set-key (kbd "M-k") 'next-line)
+  (global-set-key (kbd "M-l") 'forward-char)
+  (global-set-key (kbd "M-u") 'backward-word)
+  (global-set-key (kbd "M-o") 'forward-word)
+  (global-set-key (kbd "M-SPC") 'set-mark-command)
+#+end_src
+
+* Window Splitting
+C-x 2 -> Horizontally
+C-x 3 -> Vertically
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+#+end_src
+
+* Visit Configs
+C-c e -> Visit Emacs config folder
+C-c r -> Reload Emacs config
+C-c x -> Visit XMonad config
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c e") 'config-visit)
+  (global-set-key (kbd "C-c r") `config-reload)
+  (global-set-key (kbd "C-c x") 'config-visit-xmonad)
+#+end_src
+* Quality of Life
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c w l") 'copy-whole-line)
+  (global-set-key (kbd "C-c w w") 'kill-whole-word)
+  (global-set-key (kbd "C-x k") 'kill-current-buffer)
+  (global-set-key (kbd "C-x w") 'whitespace-mode)
+  (global-set-key (kbd "C-x v") 'vterm)
+#+end_src

@@ -1,4 +1,19 @@
 #+TITLE: Custom Functions
+Binds defined in keybinds.org
+* Window Splitting Function
+#+begin_src emacs-lisp
+  (defun split-and-follow-horizontally ()
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+
+  (defun split-and-follow-vertically ()
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+#+end_src
 
 * Kill Whole Word
 #+begin_src emacs-lisp
@@ -6,9 +21,7 @@
     (interactive)
     (backward-word)
     (kill-word 1))
-  (global-set-key (kbd "C-c w w") 'kill-whole-word)
 #+end_src
-
 * Copy Whole Line
 #+begin_src emacs-lisp
   (defun copy-whole-line ()
@@ -18,21 +31,20 @@
        (buffer-substring
 	(point-at-bol)
 	(point-at-eol)))))
-  (global-set-key (kbd "C-c w l") 'copy-whole-line)
 #+end_src
 
+* Kill Current Buffer
+#+begin_src emacs-lisp
+  (defun kill-current-buffer ()
+    (interactive)
+    (kill-buffer (current-buffer)))
+#+end_src
 
 * Emacs Config Edit
 #+begin_src emacs-lisp
   (defun config-visit ()
     (interactive)
     (find-file "~/.config/emacs/config/"))
-  (global-set-key (kbd "C-c e") 'config-visit)
-#+end_src
-
-* Emacs Config Reload
-#+begin_src emacs-lisp
-  (global-set-key (kbd "C-c r") `config-reload)
 #+end_src
 
 * XMonad Config Visit
@@ -40,5 +52,4 @@
   (defun config-visit-xmonad ()
       (interactive)
       (find-file "~/.config/xmonad/README.org"))
-    (global-set-key (kbd "C-c x") 'config-visit-xmonad)
 #+end_src

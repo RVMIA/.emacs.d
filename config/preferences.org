@@ -1,0 +1,59 @@
+#+TITLE: Preferences
+* Tab width
+#+begin_src emacs-lisp
+  (setq-default tab-width 8)
+#+end_src
+
+* Turn off Backups
+#+begin_src emacs-lisp
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+#+end_src
+* Scroll Conservatively
+#+begin_src emacs-lisp
+  (setq scroll-conservatively 100)
+#+end_src
+* No Bell
+#+begin_src emacs-lisp
+  (setq ring-bell-function 'ignore)
+#+end_src
+* Type Y instead of Yes when killing active buffer
+#+begin_src emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+end_src
+* Enable Ibuffer
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x b") 'ibuffer)
+#+end_src
+
+* Enable IDO Mode
+#+begin_src emacs-lisp
+  (setq ido-enable-flex-matching nil)
+  (setq ido-create-new-buffer 'always)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+#+end_src
+* Electric Pairs
+#+begin_src emacs-lisp
+  (setq electric-pair-pairs '(
+			      (?\( . ?\))
+			      (?\[ . ?\])
+			      (?\{ . ?\})
+			      ))
+  (electric-pair-mode t)
+#+end_src
+* Code in current window
+#+begin_src emacs-lisp
+  (setq org-src-window-setup 'current-window)
+#+end_src
+* Fill in Source Block Language
+#+begin_src emacs-lisp
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("hs" . "src haskell"))
+#+end_src
+
+
+* Visual Line Mode
+#+begin_src emacs-lisp
+  (global-visual-line-mode 1)
+#+end_src

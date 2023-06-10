@@ -1,3 +1,4 @@
+
 #+Title: Eye Candy
 * Dashboard
 #+begin_src emacs-lisp
@@ -7,15 +8,9 @@
     (dashboard-setup-startup-hook)
     (setq dashboard-items '((recents . 5)))
     (setq dashboard-startup-banner 'official)
-    (setq dashboard-banner-logo-title "dead inside frfr")
     (setq dashboard-center-content t)
     (setq dashboard-show-shortcuts nil)
     (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))))
-#+end_src
-
-* All Themes are Safe (Check themes before installing)
-#+begin_src emacs-lisp
-(setq custom-safe-themes t)
 #+end_src
 
 * Compress symbols (lambda = λ)
@@ -23,11 +18,11 @@
   (when window-system (global-prettify-symbols-mode t))
 #+end_src
 
-* Hide Fancy Bloat
+* Hide Menu Bars
 #+begin_src emacs-lisp
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
 ;(setq inhibit-startup-message t)
 #+end_src
 
@@ -44,12 +39,27 @@
 
 * Spaceline
 #+begin_src emacs-lisp
-  (use-package spaceline
-    :ensure t
-    :config
-    (require `spaceline-config)
-    (setq powerline-default-separator (quote arrow))
-    (spaceline-spacemacs-theme))
+  ;; (use-package spaceline
+  ;;   :ensure t
+  ;;   :config
+  ;;   (require `spaceline-config)
+  ;;   (setq powerline-default-separator (quote arrow))
+  ;;   (spaceline-spacemacs-theme))
+#+end_src
+* smart-mode-line
+#+begin_src emacs-lisp
+  ;; (use-package smart-mode-line
+    ;; :ensure t
+    ;; :config
+    ;; (setq sml/no-confirm-load-theme t)
+  ;;   (setq sml/theme 'light))
+  ;; ( sml/setup)
+#+end_src
+* Powerline
+#+begin_src emacs-lisp
+  (use-package powerline
+	      :ensure t)
+  (powerline-default-theme)
 #+end_src
 
 * Diminish modes from modeline
@@ -61,7 +71,8 @@
     (diminish `beacon-mode)
     (diminish `subword-mode)
     (diminish `rainbow-mode)
-    (diminish `which-key-mode))
+    (diminish `which-key-mode)
+    (diminish `visual-line-mode))
 #+end_src
 
 * Org Bullets
@@ -103,3 +114,32 @@
     (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 #+end_src
 
+* Dimmer
+#+begin_src emacs-lisp
+  (use-package dimmer
+    :ensure t
+    :config
+    (dimmer-configure-which-key)
+    (dimmer-configure-helm)
+    (dimmer-mode t))
+#+end_src
+
+* Theme / Font
+#+begin_src emacs-lisp
+
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+		(lambda (frame)
+		  (when (eq (length (frame-list)) 2))
+		  (progn
+		    (select-frame frame)
+		    (load-theme 'deeper-blue t)
+		    (set-frame-font "Iosevka-18" nil t t))))
+    (load-theme 'deeper-blue t)
+    (set-frame-font "Iosevka-18" nil t t))
+
+
+
+
+
+#+end_src
