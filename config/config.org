@@ -1,5 +1,6 @@
 #+TITLE: EMACS CONFIG
 
+#+end_src
 * VTerm
 #+begin_src emacs-lisp
   (use-package vterm
@@ -89,17 +90,48 @@
 #+end_src
 
 * Modes
-** Haskell Mode
+** Haskell
 #+begin_src emacs-lisp
-  (use-package haskell-mode
-    :ensure t)
+    (use-package haskell-mode
+      :ensure t)
+
+;;    (use-package lsp-haskell
+;;      :ensure t
+;;      :config
+;;      (add-hook 'haskell-mode-hook #'lsp)
+;;      (add-hook 'haskell-literate-mode-hook #'lsp))
 #+end_src
 
-
+** Rust
+#+begin_src emacs-lisp
+  (use-package rust-mode
+    :ensure t
+    :config
+    (add-hook 'rust-mode-hook
+	      (lambda ()
+		(setq indent-tabs-mode nil)
+		(setq rust-format-on-save t))))
+#+end_src
 ** SLY
 #+begin_src emacs-lisp
   (use-package sly
     :ensure t
     :config
     (setq inferior-lisp-program (executable-find "sbcl")))
+#+end_src
+** LSP mode
+#+begin_src emacs-lisp
+  ;; (use-package lsp-mode
+  ;;   :ensure t
+  ;;   :init
+  ;;   (setq lsp-keymap-prefix "C-c l")
+  ;;   :hook (
+  ;; 	 (rust-mode . lsp)
+  ;; 	 (haskell-mode . lsp)
+  ;; 	 (c-mode . lsp)	  
+  ;; 	 (lsp-mode . lsp-enable-which-key-integration))
+  ;;   :commands (lsp lsp-deferred))
+  ;; (use-package lsp-ui
+  ;;   :ensure t
+  ;;   :commands lsp-ui-mode)
 #+end_src

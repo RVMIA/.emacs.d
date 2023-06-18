@@ -47,9 +47,9 @@ Binds defined in keybinds.org
     (find-file "~/.config/emacs/config/"))
 #+end_src
 
-* XMonad Config Visit
+* Window Manager Config Visit
 #+begin_src emacs-lisp
-  (defun config-visit-xmonad ()
+  (defun config-visit-wm ()
       (interactive)
-      (find-file "~/.config/xmonad/README.org"))
+      (find-file "~/.config/qtile/config.py"))
 #+end_src

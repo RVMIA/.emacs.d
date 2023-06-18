@@ -34,7 +34,7 @@ C-c x -> Visit XMonad config
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-c e") 'config-visit)
   (global-set-key (kbd "C-c r") `config-reload)
-  (global-set-key (kbd "C-c x") 'config-visit-xmonad)
+  (global-set-key (kbd "C-c x") 'config-visit-wm)
 #+end_src
 * Quality of Life
 #+begin_src emacs-lisp
@@ -42,5 +42,13 @@ C-c x -> Visit XMonad config
   (global-set-key (kbd "C-c w w") 'kill-whole-word)
   (global-set-key (kbd "C-x k") 'kill-current-buffer)
   (global-set-key (kbd "C-x w") 'whitespace-mode)
+  (global-set-key (kbd "C-x M-v") 'eshell)
   (global-set-key (kbd "C-x v") 'vterm)
+  (global-set-key (kbd "C-c c") 'compile)
+#+end_src
+
+* Unbind C-z why would anyone ever want to suspend Emacs
+#+begin_src emacs-lisp
+  (global-unset-key "\C-z")
+  (global-unset-key "\C-x\C-z")
 #+end_src

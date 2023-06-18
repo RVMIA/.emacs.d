@@ -32,14 +32,13 @@
 
 (config-reload)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(powerline powerline-evil xelb which-key use-package switch-window sudo-edit smex sly rainbow-mode rainbow-delimiters popup-kill-ring org-bullets multi-vterm ido-vertical-mode hungry-delete haskell-mode dmenu dimmer diminish dashboard company beacon avy)))
+   '(autothemer xelb which-key use-package switch-window sudo-edit spinner smex sly rust-mode rich-minority rainbow-mode rainbow-delimiters pretty-mode powerline popup-kill-ring org-bullets multi-vterm markdown-mode lv ido-vertical-mode hungry-delete ht haskell-mode goto-chg f dmenu dimmer diminish dashboard company beacon avy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

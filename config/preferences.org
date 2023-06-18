@@ -1,7 +1,7 @@
 #+TITLE: Preferences
 * Tab width
 #+begin_src emacs-lisp
-  (setq-default tab-width 8)
+  (setq tab-width 8)
 #+end_src
 
 * Turn off Backups
@@ -52,8 +52,47 @@
   (add-to-list 'org-structure-template-alist '("hs" . "src haskell"))
 #+end_src
 
-
 * Visual Line Mode
 #+begin_src emacs-lisp
   (global-visual-line-mode 1)
+#+end_src
+
+* IBuffer customization
+** Groups
+#+begin_src emacs-lisp
+    (setq ibuffer-saved-filter-groups
+	  (quote (("default"
+		   ("dired" (mode . dired-mode))
+		   ("errors" (or
+			      (name . "^\\*Backtrace\\*$")))
+		   ("emacs" (or
+			     (name . "^\\*scratch\\*$")
+			     (name . "^\\*dashboard\\*$")
+			     (name . "^\\*Completions\\*$")
+			     (name . "^\\*Messages\\*$")))
+		   ("emacs config" (or
+				    (filename . "/.config/emacs/")))
+		   ))))
+
+
+  (add-hook 'ibuffer-mode-hook
+	      (lambda ()
+		(ibuffer-switch-to-saved-filter-groups "default")))
+#+end_src
+
+** Hide title and summary
+#+begin_src emacs-lisp
+  (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
+    (save-excursion
+      (set-buffer "*Ibuffer*")
+      (toggle-read-only 0)
+      (goto-char 1)
+      (search-forward "-\n" nil t)
+      (delete-region 1 (point))
+      (let ((window-min-height 1)) 
+	;; save a little screen estate
+	(shrink-window-if-larger-than-buffer))
+      (toggle-read-only)))
+
+  (ad-activate 'ibuffer-update-title-and-summary)
 #+end_src
