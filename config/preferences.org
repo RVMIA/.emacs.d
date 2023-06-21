@@ -52,9 +52,9 @@
   (add-to-list 'org-structure-template-alist '("hs" . "src haskell"))
 #+end_src
 
-* Visual Line Mode
+* Word Wrap
 #+begin_src emacs-lisp
-  (global-visual-line-mode 1)
+  (setq truncate-lines t)
 #+end_src
 
 * IBuffer customization

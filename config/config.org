@@ -19,10 +19,15 @@
 #+end_src
 * Auto Completion
 #+begin_src emacs-lisp
-  (use-package company
-    :ensure t
-    :init
-    (add-hook 'after-init-hook 'global-company-mode))
+   (use-package company
+   :ensure t
+   :init
+   (add-hook 'after-init-hook 'global-company-mode))
+#+end_src
+#+begin_src emacs-lisp
+  ;;  (use-package auto-complete
+    ;;  :ensure t)
+;;  (ac-config-default)
 #+end_src
 
 * Avy
@@ -119,19 +124,15 @@
     :config
     (setq inferior-lisp-program (executable-find "sbcl")))
 #+end_src
-** LSP mode
+** eglot
 #+begin_src emacs-lisp
-  ;; (use-package lsp-mode
-  ;;   :ensure t
-  ;;   :init
-  ;;   (setq lsp-keymap-prefix "C-c l")
-  ;;   :hook (
-  ;; 	 (rust-mode . lsp)
-  ;; 	 (haskell-mode . lsp)
-  ;; 	 (c-mode . lsp)	  
-  ;; 	 (lsp-mode . lsp-enable-which-key-integration))
-  ;;   :commands (lsp lsp-deferred))
-  ;; (use-package lsp-ui
-  ;;   :ensure t
-  ;;   :commands lsp-ui-mode)
+  (use-package eglot
+    :ensure t)
 #+end_src
+** Rustic
+#+begin_src emacs-lisp
+  (use-package rustic
+    :ensure t)
+  (setq rustic-lsp-client 'eglot)
+  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
+#+End_src

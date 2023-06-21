@@ -33,7 +33,8 @@
 
 * Line Numbers
 #+begin_src emacs-lisp
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  ;;  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook 'menu-bar--display-line-numbers-mode-relative)
 #+end_src
 
 * Modeline Rows and Columns
